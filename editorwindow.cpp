@@ -37,11 +37,11 @@ EditorWindow::EditorWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::Ed
   });
 
   connect(ui->xrButton, &QPushButton::clicked, [&]() {
-#ifdef _WIN32
-    HDC hdc = wglGetCurrentDC();
-    HGLRC hglrc = wglGetCurrentContext();
-    game()->initOpenXR(hdc, hglrc);
-#endif
+// #ifdef _WIN32
+//     HDC hdc = wglGetCurrentDC();
+//     HGLRC hglrc = wglGetCurrentContext();
+//     game()->initOpenXR(hdc, hglrc);
+// #endif
     game()->EnableXR();
   });
 
