@@ -25,16 +25,19 @@ EngineWidget::EngineWidget(QWidget* parent) : QOpenGLWidget(parent) {
   connect(frameTimer, &QTimer::timeout, [&]() {
     sendFrame();
   });
-  frameTimer->start(32);}
+  frameTimer->start(32);
+}
 
 void EngineWidget::sendFrame() {
-  mjpegServer->sendFrame(grabFramebuffer());
+    mjpegServer->sendFrame(grabFramebuffer());
 }
 
 void EngineWidget::initializeGL() {
-  this->game = std::make_unique<fe::EditableGameBase>([](const char* name) {
+    this->game = std::make_unique<fe::EditableGameBase>([](const char* name) {
     return (void*)QOpenGLContext::currentContext()->getProcAddress(name);
-  });
+    });
+
+    this->game->SetClearColor(1,0,0);
 
   // auto map1 = game->LoadStaticOBJ("resources/models/collisiontest.obj");
   // game->scene->AddObject(map1);
