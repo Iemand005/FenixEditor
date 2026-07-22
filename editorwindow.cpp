@@ -46,12 +46,13 @@ EditorWindow::EditorWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::Ed
   });
 
   connect(ui->modelButton, &QPushButton::clicked, [&]() {
-    QString file = QFileDialog::getOpenFileName(this, "Open Model", "", "Models (*.obj);;All Files (*)");
+    QString file = QFileDialog::getOpenFileName(this, "Open Model", "", "Models (*.glb);;All Files (*)");
     if (!file.isEmpty()) {
       ui->engineWidget->makeCurrent();
-      auto obj = game()->LoadStaticOBJ(file.toStdString());
+        game()->LoadModel(file.toStdString());
+      // auto obj = game()->LoadStaticOBJ(file.toStdString());
       ui->engineWidget->doneCurrent();
-      game()->scene->AddObject(obj);
+      // game()->scene->AddObject(obj);
       ui->engineWidget->update();
     }
   });
