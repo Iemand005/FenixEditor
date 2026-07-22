@@ -49,7 +49,7 @@ target_include_directories(Editor PRIVATE
     ../Engine
 )
 
-target_include_directories(FoxRacing PRIVATE
+target_include_directories(Editor PRIVATE
         include
         ${ENGINE_DIR}
         ${ENGINE_DIR}/include
