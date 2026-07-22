@@ -15,6 +15,7 @@ qt_add_executable(Editor
     editorwindow.ui
     enginewidget.h enginewidget.cpp
     mjpegserver.h mjpegserver.cpp
+    fevulkanwindow.h fevulkanwindow.cpp
 )
 
 qt_add_translations(

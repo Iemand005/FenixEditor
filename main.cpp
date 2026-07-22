@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
   QApplication a(argc, argv);
 
-  QCoreApplication::setApplicationName("Editor");
+  QCoreApplication::setApplicationName("FenixEditor");
   QCoreApplication::setOrganizationName("Lasse Lauwerys");
   QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
   QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);

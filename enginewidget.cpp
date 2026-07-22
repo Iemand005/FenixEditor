@@ -36,8 +36,8 @@ void EngineWidget::initializeGL() {
     return (void*)QOpenGLContext::currentContext()->getProcAddress(name);
   });
 
-  auto map1 = game->LoadStaticOBJ("resources/models/collisiontest.obj");
-  game->scene->AddObject(map1);
+  // auto map1 = game->LoadStaticOBJ("resources/models/collisiontest.obj");
+  // game->scene->AddObject(map1);
 
   // auto map2 = game->LoadStaticOBJ("C:/Users/Lasse/3D Objects/Car.obj");
   // game->scene->AddObject(map2);
