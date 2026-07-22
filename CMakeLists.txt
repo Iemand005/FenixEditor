@@ -28,11 +28,36 @@ set(JPH_USE_DX12 OFF CACHE BOOL "" FORCE)
 set(JPH_USE_MTL OFF CACHE BOOL "" FORCE)
 set(JPH_USE_VK OFFsste CACHE BOOL "" FORCE)
 
-add_subdirectory(../Engine build/bin)
+# add_subdirectory(../Engine build/bin)
+
+set(ENGINE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../FenixEngine")
+
+if(NOT TARGET Engine)
+    message(STATUS "Engine target not found. Looking for engine source...")
+    
+    if(EXISTS "${ENGINE_DIR}/CMakeLists.txt")
+        add_subdirectory("${ENGINE_DIR}" FenixEngine)
+    # elif(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/FenixEngine/CMakeLists.txt")
+    #     add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/FenixEngine" FenixEngine)
+    else()
+        message(FATAL_ERROR "FenixEngine not found!")
+    endif()
+endif()
 
 target_include_directories(Editor PRIVATE
     ../../include
     ../Engine
+)
+
+target_include_directories(FoxRacing PRIVATE
+        include
+        ${ENGINE_DIR}
+        ${ENGINE_DIR}/include
+        ${ENGINE_DIR}/external
+        ${ENGINE_DIR}/external/imgui
+        ${ENGINE_DIR}/external/kissfft
+        ${ENGINE_DIR}/external/SDL/include
+        ${ENGINE_DIR}/src/Engine
 )
 
 target_link_libraries(Editor
