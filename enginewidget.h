@@ -7,7 +7,6 @@
 #define EXCLUDE_NETWORKING
 #define FE_EXCLUDE_SDL
 #define FE_EXCLUDE_GLFW
-#define FE_EXCLUDE_IMGUI
 
 #include <EditableGame.hpp>
 

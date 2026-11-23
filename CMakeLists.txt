@@ -62,7 +62,9 @@ target_include_directories(Editor PRIVATE
         ${ENGINE_DIR}/src
 )
 
-target_compile_definitions(Editor PRIVATE FE_EXCLUDE_IMGUI)
+if(FE_EXCLUDE_IMGUI)
+    target_compile_definitions(Editor PRIVATE FE_EXCLUDE_IMGUI)
+endif()
 
 target_link_libraries(Editor
     PRIVATE
