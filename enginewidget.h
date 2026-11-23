@@ -7,8 +7,9 @@
 #define EXCLUDE_NETWORKING
 #define FE_EXCLUDE_SDL
 #define FE_EXCLUDE_GLFW
+#define FE_EXCLUDE_IMGUI
 
-#include <EditableGameBase.hpp>
+#include <EditableGame.hpp>
 
 #include <QOpenGLWidget>
 #include <QOpenGLContext>
@@ -23,7 +24,7 @@
 class EngineWidget : public QOpenGLWidget {
   Q_OBJECT
 
-  std::unique_ptr<fe::EditableGameBase> game;
+  std::unique_ptr<fe::EditableGame> game;
 
   bool capturing = false;
 
@@ -32,7 +33,7 @@ class EngineWidget : public QOpenGLWidget {
   EngineWidget(QWidget* parent = nullptr);
   ~EngineWidget() {}
 
-  fe::EditableGameBase *getGame() { return game.get(); }
+  fe::EditableGame *getGame() { return game.get(); }
 
   void startMouseCapture();
   void stopMouseCapture();

@@ -202,6 +202,6 @@ void EditorWindow::compileShaders() {
   ui->engineWidget->update();
 }
 
-fe::EditableGameBase *EditorWindow::game() {
+fe::EditableGame *EditorWindow::game() {
   return ui->engineWidget->getGame();
 }

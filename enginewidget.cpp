@@ -33,7 +33,7 @@ void EngineWidget::sendFrame() {
 }
 
 void EngineWidget::initializeGL() {
-    this->game = std::make_unique<fe::EditableGameBase>([](const char* name) {
+    this->game = std::make_unique<fe::EditableGame>([](const char* name) {
     return (void*)QOpenGLContext::currentContext()->getProcAddress(name);
     });
 

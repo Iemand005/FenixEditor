@@ -4,8 +4,9 @@
 #define EXCLUDE_NETWORKING
 #define FE_EXCLUDE_SDL
 #define FE_EXCLUDE_GLFW
+#define FE_EXCLUDE_IMGUI
 
-#include <EditableGameBase.hpp>
+#include <EditableGame.hpp>
 
 #include <QMainWindow>
 #include <QtOpenGLWidgets/QtOpenGLWidgets>
@@ -28,7 +29,7 @@ class EditorWindow : public QMainWindow {
   void reloadModelList();
 
 
-  fe::EditableGameBase *game();
+  fe::EditableGame *game();
 
  protected:
   bool event(QEvent* event) override;

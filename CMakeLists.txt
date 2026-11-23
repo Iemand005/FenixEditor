@@ -27,7 +27,7 @@ set(JOLT_BUILD_SHADERS OFF CACHE BOOL "" FORCE)
 set(JPH_USE_DXC OFF CACHE BOOL "" FORCE)
 set(JPH_USE_DX12 OFF CACHE BOOL "" FORCE)
 set(JPH_USE_MTL OFF CACHE BOOL "" FORCE)
-set(JPH_USE_VK OFFsste CACHE BOOL "" FORCE)
+set(JPH_USE_VK OFF CACHE BOOL "" FORCE)
 
 # add_subdirectory(../Engine build/bin)
 
@@ -35,6 +35,7 @@ set(ENGINE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../FenixEngine")
 
 if(NOT TARGET Engine)
     message(STATUS "Engine target not found. Looking for engine source...")
+    set(FE_EXCLUDE_IMGUI ON)
     
     if(EXISTS "${ENGINE_DIR}/CMakeLists.txt")
         add_subdirectory("${ENGINE_DIR}" FenixEngine)
@@ -60,6 +61,8 @@ target_include_directories(Editor PRIVATE
         ${ENGINE_DIR}/external/SDL/include
         ${ENGINE_DIR}/src
 )
+
+target_compile_definitions(Editor PRIVATE FE_EXCLUDE_IMGUI)
 
 target_link_libraries(Editor
     PRIVATE
