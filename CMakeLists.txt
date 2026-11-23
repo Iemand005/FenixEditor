@@ -58,7 +58,7 @@ target_include_directories(Editor PRIVATE
         ${ENGINE_DIR}/external/imgui
         ${ENGINE_DIR}/external/kissfft
         ${ENGINE_DIR}/external/SDL/include
-        ${ENGINE_DIR}/src/Engine
+        ${ENGINE_DIR}/src
 )
 
 target_link_libraries(Editor
